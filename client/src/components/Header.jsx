@@ -1,12 +1,19 @@
 import { Avatar, Dropdown, Navbar, TextInput, Button } from "flowbite-react";
 import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaMoon } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaMoon ,FaSun} from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import { toggleTheme } from "../redux/theme/themeSlice";
+import { useSelector, useDispatch } from "react-redux";
+
 
 const Header = () => {
+  const path = useLocation().pathname;
+  const { theme } = useSelector((state) => state.theme);
+
+  const dispatch = useDispatch();
   return (
-    <Navbar>
+    <Navbar className="border-b-2">
       <Link
         to={"/"}
         className="self-center whitespace-nowrap text-md sm:text-xl font-semibold dark:text-white"
@@ -26,7 +33,15 @@ const Header = () => {
       <Button gradientDuoTone="tealToLime" className="w-12 h-10 md:hidden" pill>
         <AiOutlineSearch />
       </Button>
-      <div className="flex md:order-2">
+      <div className="flex gap-2 md:order-2">
+      <Button
+          gradientDuoTone="purpleToBlue"
+          className="w-12 h-10 hidden sm:inline"
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === "light" ? <FaMoon /> : <FaSun />}
+        </Button>
         <Dropdown
           arrowIcon={false}
           inline
@@ -53,13 +68,18 @@ const Header = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="/" active>
-          Home
+        <Navbar.Link active={path === "/"} as={"div"}>
+          <Link to={"/"}>Home</Link>
         </Navbar.Link>
-        <Navbar.Link href="/about">About</Navbar.Link>
-        <Navbar.Link href="/services">Services</Navbar.Link>
-        <Navbar.Link href="/pricing">Pricing</Navbar.Link>
-       
+        <Navbar.Link active={path === "/about"} as={"div"}>
+          <Link to={"/about"}>About</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === "/services"} as={"div"}>
+          <Link to={"/services"}>Services</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === "/pricing"} as={"div"}>
+          <Link to={"/pricing"}>Pricing</Link>
+        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
