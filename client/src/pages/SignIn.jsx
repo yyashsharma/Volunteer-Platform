@@ -9,6 +9,7 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import signimg from '../assets/sign3.png'
+import OAuth from "../components/OAuth";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({});
@@ -90,11 +91,11 @@ const SignIn = () => {
             gradientDuoTone="tealToLime"
             type="submit"
             disabled={loading}
-            className="border-2 border-transparent hover:border-slate-700 box-border"
+            className="border-2 border-transparent hover:border-teal-500 box-border"
           >
-            {loading ? <Spinner size="sm" /> : "Sign Up"}
+            {loading ? <Spinner size="sm" /> : "Sign In"}
           </Button>
-          {/* <OAuth /> */}
+          <OAuth />
         </form>
         <div className="flex gap-2 text-sm mt-5">
           <span> Don't have an account?</span>

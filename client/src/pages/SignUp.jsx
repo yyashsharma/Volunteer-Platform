@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import signimg from '../assets/sign3.png'
+import OAuth from "../components/OAuth";
 
 const SignUp = () => {
 
@@ -92,11 +93,11 @@ const SignUp = () => {
             gradientDuoTone="tealToLime"
             type="submit"
             disabled={loading}
-            className="border-2 border-transparent hover:border-slate-700 box-border"
+            className="border-2 border-transparent hover:border-teal-500 box-border"
           >
             {loading ? <Spinner size="sm" /> : "Sign Up"}
           </Button>
-          {/* <OAuth /> */}
+          <OAuth />
         </form>
         <div className="flex gap-2 text-sm mt-5">
           <span>Have an account?</span>
