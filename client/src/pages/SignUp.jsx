@@ -56,7 +56,7 @@ const SignUp = () => {
           </span>
        
         </Link>
-        <img src={signimg} alt="" className="w-100 h-100"/>
+        <img src={signimg} alt="" />
       </div>
       {/* right */}
       <div className="flex-1">
