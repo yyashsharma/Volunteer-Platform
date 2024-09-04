@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import "../index.css";
 
 const SignIn = () => {
+
   return (
-    <div>
-      Sign-in
-    </div>
+<div>
+  sign in 
+</div>
   )
 }
 

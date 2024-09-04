@@ -1,6 +1,6 @@
 import express from 'express'
 import {connectDB} from './utils/db.js'
-import { config } from 'dotenv';
+import {config} from "dotenv"
 // import userRoutes from './routes/user.route.js'
 import authRoutes from './routes/auth.route.js'
 // import postRoutes from './routes/post.route.js'
@@ -11,9 +11,7 @@ import cookieParser from 'cookie-parser';
 import path from 'path'
 
 
-config({
-    path: "./utils/config.env",
-})
+config();
 
 // const __dirname = path.resolve();
 
@@ -47,5 +45,5 @@ app.use(ErrorHandlerMiddleware)
 
 
 app.listen(process.env.PORT, () => {
-    console.log("server is running on 4000!")
+    console.log(`server is running on Port:${process.env.PORT} `)
 })

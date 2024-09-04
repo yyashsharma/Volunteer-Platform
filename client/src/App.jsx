@@ -7,6 +7,8 @@ import About from "./pages/About";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Pricing from "./pages/Pricing";
+import {ToastContainer} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -21,7 +23,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
       <FooterComponent />
-      {/* <ToastContainer position="top-center" /> */}
+      <ToastContainer position="top-center" />
     </Router>
   );
 }

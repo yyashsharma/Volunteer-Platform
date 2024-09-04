@@ -18,9 +18,9 @@ const Header = () => {
         to={"/"}
         className="self-center whitespace-nowrap text-md sm:text-xl font-semibold dark:text-white"
       >
-        <span className="px-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-l-full text-white">
-       Volunto
-        </span>
+        <span className="px-3 bg-gradient-to-r from-teal-200  to-lime-200 rounded-l-full text-slate-900">
+            Volunto
+          </span>
       </Link>
       <form>
         <TextInput
@@ -65,20 +65,25 @@ const Header = () => {
           <Dropdown.Divider />
           <Dropdown.Item>Sign out</Dropdown.Item>
         </Dropdown>
+        <Link to={"/sign-in"}>
+            <Button gradientDuoTone="tealToLime" outline>
+              Sign In
+            </Button>
+          </Link>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
         <Navbar.Link active={path === "/"} as={"div"}>
-          <Link to={"/"}>Home</Link>
+          <Link to={"/"} className="hover:underline">Home</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/about"} as={"div"}>
-          <Link to={"/about"}>About</Link>
+          <Link to={"/about"} className="hover:underline">About</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/services"} as={"div"}>
-          <Link to={"/services"}>Services</Link>
+          <Link to={"/services"} className="hover:underline">Services</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/pricing"} as={"div"}>
-          <Link to={"/pricing"}>Pricing</Link>
+          <Link to={"/pricing"} className="hover:underline">Pricing</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

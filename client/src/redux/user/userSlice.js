@@ -1,14 +1,14 @@
-import {createSlice} from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
-const initialState={
-    currentUser:null,
-    loading:false
+const initialState = {
+    currentUser: null,
+    loading: false
 }
 
-const userSlice=createSlice({
-    name:user,
+const userSlice = createSlice({
+    name: 'user',
     initialState,
-    reducers:{
+    reducers: {
         signInStart: (state) => {
             state.loading = true;
         },
@@ -43,10 +43,8 @@ const userSlice=createSlice({
             state.currentUser = null;
             state.loading = false;
         },
-
-    }
+    },
 })
-
 
 // Action creators are generated for each case reducer function
 export const { signInStart, signInSuccess, signInFailure, updateStart, updateSuccess, updateFailure, deleteUserStart, deleteUserSuccess, deleteUserFailure, signoutSuccess } = userSlice.actions
